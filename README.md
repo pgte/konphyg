@@ -14,11 +14,11 @@ These should be JSON files, terminated by ".json".
 
 This example loads and parses the ../config/redis.json file:
 
-    // Initialize komphyg with the base config dir
-    var komphyg = require('komphyg')(__dirname + '../config');
+    // Initialize konphyg with the base config dir
+    var config = require('konphyg')(__dirname + '../config');
 
     // Read the "redis" configuration
-    var conf = komphyg('redis');
+    var redisConfig = config('redis');
 
 ## Environment-specific files and cascading
 
