@@ -40,6 +40,7 @@ For instance let's say you have this `redis.json` file:
     }
 
 and that you have this `redis.development.json` file:
+
     {
       host: '127.0.0.1'
     }
