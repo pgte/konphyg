@@ -30,6 +30,30 @@ The base `redis.json` values can be overrided by the more specific `redis.test.j
 
 What happens here is that the settings in the base configuration are merged with the `redis.test.json` one (using deep merge), so you only have to place the differences inside the environment-specific file.
 
+# Examples
+
+For instance let's say you have this `redis.json` file:
+
+    {
+        host: 'redis.acme.com'
+      , port: 6379
+    }
+
+and that you have this `redis.development.json` file:
+    {
+      host: '127.0.0.1'
+    }
+
+The resulting configuration for the development environment will be the merge of the 2:
+
+    {
+        host: '127.0.0.1'
+      , port: 6379
+    }
+
+
+This also works with attributes nested at any level.
+
 ## NODE_ENV defaults
 
 If not present, the chosen environment is 'development'.
