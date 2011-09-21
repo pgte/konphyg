@@ -17,7 +17,7 @@ This example loads and parses the ../config/redis.json file:
     // Initialize konphyg with the base config dir
     var config = require('konphyg')(__dirname + '../config');
 
-    // Read the "redis" configuration
+    // Read the "redis" domain
     var redisConfig = config('redis');
 
 ## Environment-specific files and cascading
