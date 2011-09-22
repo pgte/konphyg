@@ -35,21 +35,21 @@ What happens here is that the settings in the base configuration are merged with
 For instance let's say you have this `redis.json` file:
 
     {
-        host: 'redis.acme.com'
-      , port: 6379
+        "host": "redis.acme.com"
+      , "port": "6379"
     }
 
 and that you have this `redis.development.json` file:
 
     {
-      host: '127.0.0.1'
+      "host": "127.0.0.1"
     }
 
 The resulting configuration for the development environment will be the merge of the 2:
 
     {
-        host: '127.0.0.1'
-      , port: 6379
+        "host": "127.0.0.1"
+      , "port": "6379"
     }
 
 
@@ -63,3 +63,7 @@ If you want to launch a node process using the 'production' environment you shou
 
 
     $ NODE_ENV=production node app.js
+
+# Resources
+
+* [Configuration files in Node.js made easy with Konphyg](http://metaduck.com/post/10514524808/configuration-files-in-node-js-made-easy-with-konphyg)
