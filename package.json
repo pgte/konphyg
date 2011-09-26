@@ -9,7 +9,7 @@
   }
 , "bugs" :
   { "web" : "http://github.com/pgte/konphyg/issues" }
-, "engines" : ["node >= 0.4.10"]
+, "engines" : ["node >= 0.4.0"]
 , "devDependencies": {
     "tap": "0.0.x"
 }
