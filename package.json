@@ -1,7 +1,7 @@
 { "name" : "konphyg"
 , "description" : "Cascading configuration files made easy in Node.js."
 , "tags" : ["configuration", "environments"]
-, "version" : "1.0.3"
+, "version" : "1.0.5"
 , "author" : "Pedro Teixeira <pedro.teixeira@gmail.com>"
 , "repository" :
   { "type" : "git"
