@@ -13,3 +13,16 @@ test("load non-existing file", function(t) {
   t.type(config, "null");
   t.end();
 });
+
+test("load non-existing file and throw", function(t) {
+  var threw = false;
+  try {
+    load(__dirname + '/../assets/test_does_not_exist.json', 'testdomain', true);
+  } catch(err) {
+    threw = true
+    t.ok(!!(/^Could not find configuration file for testdomain domain/.test(err.message)));
+  }
+
+  t.ok(threw, "should throw when base file is not found");
+  t.end();
+});
