@@ -1,14 +1,14 @@
 { "name" : "konphyg"
 , "description" : "Cascading configuration files made easy in Node.js."
 , "tags" : ["configuration", "environments"]
-, "version" : "1.0.3"
+, "version" : "1.0.4"
 , "author" : "Pedro Teixeira <pedro.teixeira@gmail.com>"
 , "repository" :
   { "type" : "git"
   , "url" : "http://github.com/pgte/konphyg.git"
   }
 , "bugs" :
-  { "web" : "http://github.com/pgte/konphyg/issues" }
+  { "url" : "http://github.com/pgte/konphyg/issues" }
 , "engines" : ["node >= 0.4.0"]
 , "devDependencies": {
     "tap": "0.0.x"
