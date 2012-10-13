@@ -8,6 +8,13 @@ test("load existing configuration with one file", function(t) {
   t.end();
 });
 
+test("load all configs", function(t) {
+  var config = konphyg.all();
+  var expected = {test1:{a:100,b:{c:120,d:13}},test3:{e:10,f:[1,2,3,4]}}
+  t.similar(config, expected, "wrong file contents");
+  t.end();
+});
+
 test("non-existing base configuration file throws error", function(t) {
   var threw = false;
   
