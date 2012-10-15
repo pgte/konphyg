@@ -8,6 +8,13 @@ test("load existing configuration with one file", function(t) {
   t.end();
 });
 
+test("load all configs", function(t) {
+  var config = konphyg.all();
+  var expected = {test1:{a:100,b:{c:120,d:13}},test9:{e:10,f:[1,2,3,4]}}
+  t.similar(config, expected, "wrong file contents");
+  t.end();
+});
+
 test("non-existing base configuration file throws error", function(t) {
   var threw = false;
   
@@ -52,10 +59,10 @@ test("non-existing env configuration file throws error if requireEnv", function(
   var threw = false;
 
   try {
-    var config = konphyg('test5', true);
+    var config = konphyg('testdoesnotexist', true);
   } catch(err) {
     threw = true
-    t.ok(!!(/^Could not find configuration file for test5.development domain/.test(err.message)), "Error message: " + err.message);
+    t.ok(!!(/^Could not find configuration file for testdoesnotexist domain/.test(err.message)), "Error message: " + err.message);
   }
 
   t.ok(threw, "should throw when env file is not found");
