@@ -55,6 +55,33 @@ The resulting configuration for the development environment will be the merge of
 
 This also works with attributes nested at any level.
 
+# Explicitly Require Environment File(s)
+
+Optional feature. At require time or per configuration fetch specify if an environment file is mandatory. If not found then an Error will be thrown. Normal behavior is to simply ignore the 
+non-existence of an environment specific file.
+
+At require time:
+
+    // Initialize konphyg with the base config dir (require environment files)
+    var config = require('konphyg', true)(__dirname + '../config');
+
+Or at configure time:
+
+    // Normal require
+    // ...
+
+    // Read the "redis" domain (environment file must exist)
+    var redisConfig = config('redis', true);
+
+Also, over-riding require time mandate at configure time:
+
+    // Initialize konphyg with the base config dir (require environment files)
+    var config = require('konphyg', true)(__dirname + '../config');
+
+    // Read the "redis" domain (over-ride, environment file doesn't need to exist)
+    var redisConfig = config('redis', false);
+
+
 ## NODE_ENV defaults
 
 If not present, the chosen environment is 'development'.

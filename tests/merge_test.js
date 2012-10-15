@@ -49,3 +49,13 @@ test("b object property is merged with a object property", function(t) {
   t.similar(result, {a:{c:3,d:5,e:6},b:2});
   t.end();
 });
+
+test("object has merging capability", function(t) {
+  var a = {a: 1, b: 2};
+  var b = {a: 3};
+  var result = merge(a, a);
+  result = result._merge(b);
+  t.type(result, "object");
+  t.similar(result, {a:3, b:2});
+  t.end();
+});
