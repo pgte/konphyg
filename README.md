@@ -14,11 +14,22 @@ These should be JSON files, terminated by ".json".
 
 This example loads and parses the ../config/redis.json file:
 
-    // Initialize konphyg with the base config dir
-    var config = require('konphyg')(__dirname + '../config');
+```js
+// Initialize konphyg with the base config dir
+var config = require('konphyg')(__dirname + '../config');
 
-    // Read the "redis" domain
-    var redisConfig = config('redis');
+// Read the "redis" domain
+var redisConfig = config('redis');
+```
+
+Loading all configurations:
+```js
+// Initialize konphyg with the base config dir
+var konphyg = require('konphyg')(__dirname + '../config');
+
+// Read the "redis" domain
+var config = konphyg.all();
+```
 
 ## Environment-specific files and cascading
 
@@ -34,53 +45,31 @@ What happens here is that the settings in the base configuration are merged with
 
 For instance let's say you have this `redis.json` file:
 
-    {
-        "host": "redis.acme.com"
-      , "port": "6379"
-    }
+```json
+{
+    "host": "redis.acme.com"
+  , "port": "6379"
+}
+```
 
 and that you have this `redis.development.json` file:
 
-    {
-      "host": "127.0.0.1"
-    }
+```json
+{
+  "host": "127.0.0.1"
+}
+```
 
 The resulting configuration for the development environment will be the merge of the 2:
 
-    {
-        "host": "127.0.0.1"
-      , "port": "6379"
-    }
-
+```json
+{
+    "host": "127.0.0.1"
+  , "port": "6379"
+}
+```
 
 This also works with attributes nested at any level.
-
-# Explicitly Require Environment File(s)
-
-Optional feature. At require time or per configuration fetch specify if an environment file is mandatory. If not found then an Error will be thrown. Normal behavior is to simply ignore the 
-non-existence of an environment specific file.
-
-At require time:
-
-    // Initialize konphyg with the base config dir (require environment files)
-    var config = require('konphyg', true)(__dirname + '../config');
-
-Or at configure time:
-
-    // Normal require
-    // ...
-
-    // Read the "redis" domain (environment file must exist)
-    var redisConfig = config('redis', true);
-
-Also, over-riding require time mandate at configure time:
-
-    // Initialize konphyg with the base config dir (require environment files)
-    var config = require('konphyg', true)(__dirname + '../config');
-
-    // Read the "redis" domain (over-ride, environment file doesn't need to exist)
-    var redisConfig = config('redis', false);
-
 
 ## NODE_ENV defaults
 
@@ -88,8 +77,9 @@ If not present, the chosen environment is 'development'.
 
 If you want to launch a node process using the 'production' environment you should then do something like:
 
-
-    $ NODE_ENV=production node app.js
+```bash
+NODE_ENV=production node app.js
+```
 
 # Resources
 
