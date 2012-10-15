@@ -1,4 +1,4 @@
-# konphyg
+# konphyg [![Build Status](https://secure.travis-ci.org/pgte/konphyg.png)](http://travis-ci.org/pgte/konphyg)
 
 Cascading configuration files made easy in Node.js.
 
