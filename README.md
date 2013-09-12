@@ -20,14 +20,7 @@ var config = require('konphyg')(__dirname + '../config');
 
 // Read the "redis" domain
 var redisConfig = config('redis');
-```
-
-Loading all configurations:
-```js
-// Initialize konphyg with the base config dir
-var konphyg = require('konphyg')(__dirname + '../config');
-
-// Read the "redis" domain
+// Loading all configurations
 var config = konphyg.all();
 ```
 
