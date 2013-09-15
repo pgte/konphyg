@@ -11,7 +11,7 @@
   { "url" : "http://github.com/pgte/konphyg/issues" }
 , "engines" : ["node >= 0.4.0"]
 , "devDependencies": {
-    "tap": "0.0.x"
+    "tap": "~0.4.4"
 }
 , "main" : "./index"
 , "scripts": { "test": "node_modules/.bin/tap tests" }
