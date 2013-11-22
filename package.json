@@ -15,4 +15,5 @@
 }
 , "main" : "./index"
 , "scripts": { "test": "node_modules/.bin/tap tests" }
+, "license": "MIT"
 }
