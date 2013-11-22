@@ -76,7 +76,7 @@ NODE_ENV=production node app.js
 
 # Resources
 
-* [Configuration files in Node.js made easy with Konphyg](http://metaduck.com/post/10514524808/configuration-files-in-node-js-made-easy-with-konphyg)
+* [Configuration files in Node.js made easy with Konphyg](http://metaduck.com/03-konphyg.html)
 
 # License
 
