@@ -21,7 +21,9 @@ var config = require('konphyg')(__dirname + '../config');
 // Read the "redis" domain
 var redisConfig = config('redis');
 // Loading all configurations
-var config = konphyg.all();
+var config = conphyg.all();
+// Clear konphyg internal cache (so next all() or config(domain) will re-read the files)
+config.clear();
 ```
 
 ## Environment-specific files and cascading
