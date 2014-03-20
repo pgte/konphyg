@@ -1,4 +1,5 @@
 var konphyg = require('../.')(__dirname + '/../assets/config');
+var fs = require('fs');
 
 var test = require('tap').test;
 
@@ -114,3 +115,25 @@ test("non-existing env configuration file doesn't throw error if alwaysRequireEn
   t.end();
 });
 
+test("clear method force reloading the underlaying configuration file", function(t) {
+  var assetsPath = __dirname + '/../assets/config';
+  fs.writeFileSync(assetsPath + '/test10.json', fs.readFileSync(assetsPath + '/test10-1.json'));
+  
+  var test101config = {a: 'foo'};
+  var test102config = {a: 'bar', b: 'exists'};
+
+  var my_konphyg = require('../.')(assetsPath);
+
+  
+  var all = my_konphyg.all();
+  t.similar(all.test10, test101config);
+  fs.writeFileSync(assetsPath + '/test10.json', fs.readFileSync(assetsPath + '/test10-2.json'));
+  all = my_konphyg.all();
+  t.similar(all.test10, test101config);
+  my_konphyg.clear();
+  all = my_konphyg.all();
+  t.similar(all.test10, test102config);
+  fs.unlinkSync(assetsPath + '/test10.json');
+  
+  t.end();
+});
