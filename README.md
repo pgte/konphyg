@@ -76,6 +76,20 @@ If you want to launch a node process using the 'production' environment you shou
 NODE_ENV=production node app.js
 ```
 
+## Additional path
+
+Additional path can be added through an optional argument:
+
+```js
+// Initialize konphyg with the base config dir
+var config = require('konphyg')(__dirname + '../config');
+
+// Read the "redis", "foo/bar" and "foo/buz" domain, in this order
+var redisConfig = config('redis', false, {lookupPath: ['foo/bar', 'foo/buz']});
+// Loading all configurations in config and in config/foo
+var config = conphyg.all({lookupPath: ['foo']});
+```
+
 # Resources
 
 * [Configuration files in Node.js made easy with Konphyg](http://metaduck.com/03-konphyg.html)

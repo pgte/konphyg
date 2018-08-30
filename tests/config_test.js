@@ -137,3 +137,25 @@ test("clear method force reloading the underlaying configuration file", function
   
   t.end();
 });
+
+test("handle additional paths as optional arg", function(t){
+  var my_konphyg = require('../.')(__dirname + '/../assets/config', false)
+  var config = my_konphyg('test11', false, {lookupPath: ['additionalTests1/test1','additionalTests2/test']});
+  t.similar(config, {a:10010,b:{c:12,d:1300},e:4000,f: [1, 2, 3]}, "wrong file contents");
+  t.end();
+});
+
+test("get all confing in base and additional paths", function(t){
+  var my_konphyg = require('../.')(__dirname + '/../assets/config', false)
+  var config = my_konphyg.all({lookupPath: ['additionalTests1','additionalTests2']});
+  var expected = {
+    test1:{a:100, b:{c:120, d:13}},
+    test9:{e:10, f:[1,2,3,4]}, 
+    'additionalTests1/test1':{a:1000, b:{d:1300}},
+    'additionalTests1/test2':{g: 5000},
+    'additionalTests2/test': {a: 10010, f: [1, 2, 3]}
+  };
+
+  t.similar(config, expected, "wrong file contents");
+  t.end();
+});
