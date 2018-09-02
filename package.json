@@ -1,19 +1,28 @@
-{ "name" : "konphyg"
-, "description" : "Cascading configuration files made easy in Node.js."
-, "tags" : ["configuration", "environments"]
-, "version" : "1.4.0"
-, "author" : "Pedro Teixeira <pedro.teixeira@gmail.com>"
-, "repository" :
-  { "type" : "git"
-  , "url" : "http://github.com/pgte/konphyg.git"
-  }
-, "bugs" :
-  { "url" : "http://github.com/pgte/konphyg/issues" }
-, "engines" : ["node >= 0.4.0"]
-, "devDependencies": {
+{
+  "name": "konphyg",
+  "description": "Cascading configuration files made easy in Node.js.",
+  "tags": [
+    "configuration",
+    "environments"
+  ],
+  "version": "1.5.0",
+  "author": "Pedro Teixeira <pedro.teixeira@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pgte/konphyg.git"
+  },
+  "bugs": {
+    "url": "http://github.com/pgte/konphyg/issues"
+  },
+  "engines": [
+    "node >= 0.4.0"
+  ],
+  "devDependencies": {
     "tap": "~0.4.4"
-}
-, "main" : "./index"
-, "scripts": { "test": "node_modules/.bin/tap tests" }
-, "license": "MIT"
+  },
+  "main": "./index",
+  "scripts": {
+    "test": "node_modules/.bin/tap tests"
+  },
+  "license": "MIT"
 }
